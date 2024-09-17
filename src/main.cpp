@@ -84,22 +84,28 @@ string binaryToDecimal(const string& strNumber) {
 }
 
 string decimalToBinary(const string& strNumber) {
+    string binary, binaryString;
     int decimalValue = 0;
     for (char c : strNumber) {
         decimalValue = decimalValue * 10 + (c - '0');
     }
     
-    if (decimalValue == 0) return "0b0";
-    string binary;
+    if (decimalValue == 0) {
+        return "0b0";
+    }
+
     while (decimalValue > 0) {
         binary = char((decimalValue % 2) + '0') + binary;
         decimalValue /= 2;
     }
-    return "0b" + binary;
+
+    binaryString = "0b" + binary;
+
+    return binaryString;
 }
 
 string decimalToHex(const string& strNumber) {
-    string hex;
+    string hex, hexString;
     int decimalValue = 0;
     for (char c : strNumber) {
         decimalValue = decimalValue * 10 + (c - '0');
@@ -118,7 +124,10 @@ string decimalToHex(const string& strNumber) {
         }
         decimalValue /= 16;
     }
-    return "0x" + hex;
+
+    hexString = "0x" + hex;
+
+    return hexString;
 }
 
 string hexToDecimal(const string& strNumber) {
