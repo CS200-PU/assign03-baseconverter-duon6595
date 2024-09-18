@@ -6,7 +6,7 @@
 // Assignment:  Base Converter
 // Purpose:     Binary, Decimal, and Hexadecimal representations of numbers 
 //.             and conversions between these representations
-// Hours:       0.25
+// Hours:       3.5
 //******************************************************************************
 
 #include <iostream>
@@ -33,12 +33,14 @@ int main () {
 
   while (true) {
     string input;
+    char base;
+    
     input = getNumber("Enter your string to convert (q to quit): ");
     if (input == "q") {
       break;
     }
 
-    char base = getBase(input);
+    base = getBase(input);
 
     if (base == 'D') {
         cout << "The binary conversion is: " << decimalToBinary(input) 
